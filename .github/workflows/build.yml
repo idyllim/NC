@@ -1,6 +1,18 @@
 name: navicat-keygen builds
-on: [push]
-
+on:
+  workflow_dispatch:
+  push:
+    branches: [ windows ]
+    paths-ignore: 
+      - 'README.md'
+      - 'LICENSE'
+  pull_request:
+    branches: [ windows ]
+    paths-ignore: 
+      - 'README.md'
+      - 'LICENSE'
+  schedule:
+    - cron: '0 22 * * *' # Runs at 22:00 UTC every day
 jobs:
   navicat-keygen-x86:
     runs-on: windows-latest
